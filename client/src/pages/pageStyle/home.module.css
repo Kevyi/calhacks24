@@ -89,12 +89,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 80px); /* Full height minus header */
+    height: calc(100vh - 100px); /* Full height minus header. Hard code is bad, leaves black bar.*/
     text-align: center;
   }
   
   .content h1 {
-    font-size: 200px;
+    font-size: 150px;
     margin-bottom: 20px;
     color: #7D6358; /* Rich brown */
   }
@@ -116,7 +116,6 @@
     padding: 10px;
     background-color: #E8D4C5; /* Light beige footer */
     color: #7D6358;
-    position: absolute;
     width: 100%;
     bottom: 0;
   }
