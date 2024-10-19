@@ -1,0 +1,93 @@
+/* Container for the entire login page */
+.login-page-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-side {
+    flex: 1;
+    background-color: #d8e8a5; /* Light green background for the left side */
+  }
+  
+  .right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #c0eb34; /* Bright green background for the right side */
+  }
+  
+  /* Container for the login form */
+  .login-container {
+    width: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #f0f4f8; /* Light background color for the form */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Styling for each form group */
+  .form-group {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling for form labels */
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #213547; /* Dark color for labels */
+  }
+  
+  /* Styling for input fields */
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  /* Style for the button */
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #646cff; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Button hover effect */
+  button:hover {
+    background-color: #535bf2; /* Slightly darker shade on hover */
+  }
+  
+  /* Message styling (for success or error messages) */
+  p {
+    font-size: 14px;
+    color: red; /* Red for error messages */
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  /* Add a nice box shadow to the form on hover */
+  .login-container:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Media query for mobile responsiveness */
+  @media (max-width: 500px) {
+    .login-container {
+      width: 90%;
+      padding: 20px;
+    }
+  }
