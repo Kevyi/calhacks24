@@ -1,0 +1,143 @@
+.tasks-page {
+    padding: 20px;
+  }
+  
+  .tasks-list {
+    margin-bottom: 60px; /* Space for the add task button */
+  }
+  
+  .task-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Additional styling for the tasks page */
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .task-item p {
+    margin: 5px 0;
+  }
+  
+  .task-item strong {
+    color: #555;
+  }
+  
+  /* Styling for the add task button */
+  .add-task-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #646cff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .add-task-button.expand {
+    animation: expandCircle 0.5s forwards;
+  }
+  
+  @keyframes expandCircle {
+    0% {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    100% {
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  
+  .task-form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards 0.5s;
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  input, select, .date-picker {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    margin-bottom: 10px;
+  }
+  
+  .penalty-group {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .penalty-group button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+  }
+  
+  .penalty-group button.active {
+    background-color: #646cff;
+    color: white;
+  }
+  
+  .confirm-button {
+    padding: 12px 20px;
+    background-color: #646cff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+  }
