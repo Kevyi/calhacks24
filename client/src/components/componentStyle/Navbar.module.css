@@ -1,54 +1,57 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background-color: #D1B4A7;
-  }
-  
-  .logoContainer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .logoImage {
-    width: 50px;
-    height: 50px;
-    overflow: hidden;
-  }
-  
-  .logo {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-  
-  .authButtons {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .authButtons button {
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    border: 5px solid #edd8cf;
-    background-color: #edd8cf;
-    color: #7D6358;
-    transition: transform 0.2s ease, opacity 0.2s;
-  }
-  
-  .authButtons button:hover {
-    opacity: 0.9;
-    transform: scale(1.05);
-  }
-  
-  .authButtons button:focus {
-    box-shadow: 0 0 5px #7D6358;
-  }
-  
-  .loginButton, .registerButton {
-    border-radius: 20px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #D1B4A7; /* Soft pinkish beige */
+}
+
+.logoContainer {
+  display: flex; /* Align elements horizontally */
+  align-items: center; /* Vertically align content */
+  gap: 10px; /* Space between the image and text */
+}
+
+/* Logo image styling */
+.logoImage {
+  width: 50px;
+  height: 50px;
+  object-fit: contain; /* Keep the image's aspect ratio */
+  border-radius: 50%; /* Circular logo shape */
+  overflow: hidden;
+}
+
+/* Optional: Adjust font/logo text next to the image */
+.logo {
+  font-size: 24px; /* Adjust text size for better alignment */
+  color: #7D6358; /* Same brown color as the buttons */
+}
+
+.authButtons {
+  display: flex; /* Align buttons horizontally */
+  gap: 20px; /* Space between buttons */
+}
+
+.authButtons button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  border: 5px solid #edd8cf;
+  background-color: #edd8cf; /* Button background color */
+  color: #7D6358;
+  transition: transform 0.2s ease, opacity 0.2s;
+}
+
+.authButtons button:hover {
+  opacity: 0.9;
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.authButtons button:focus {
+  box-shadow: 0 0 5px #7D6358;
+}
+
+.loginButton, .registerButton {
+  border-radius: 20px; /* Slightly rounder buttons */
+}

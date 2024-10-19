@@ -3,8 +3,6 @@ import styles from './pageStyle/Home.module.css'; // Import CSS module
 import Navbar from '../components/Navigationbar.jsx'
 
 const Home = () => {
-  console.log(styles); // Check if classes are loaded correctly
-
   return (
     <>
     <div>
