@@ -1,7 +1,7 @@
 
 import './pageStyle/register.css';
 
-export default function Home() {
+export default function Register() {
   return (
     <div className="home-container">
       <div className="left-side">
