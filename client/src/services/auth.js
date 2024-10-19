@@ -1,4 +1,4 @@
-import jwt_decode from 'jwt-decode'; // To decode JWT tokens
+// import jwt_decode from 'jwt-decode'; // To decode JWT tokens
 
 // Save token in localStorage
 export const saveToken = (token) => {
@@ -22,11 +22,11 @@ export const isAuthenticated = () => {
   return token !== null;
 };
 
-// Decode the token to get user info (if needed)
-export const getUserInfo = () => {
-  const token = getToken();
-  if (token) {
-    return jwt_decode(token); // Decodes the token payload (e.g., user ID, email, etc.)
-  }
-  return null;
-};
+// // Decode the token to get user info (if needed)
+// export const getUserInfo = () => {
+//   const token = getToken();
+//   if (token) {
+//     return jwt_decode(token); // Decodes the token payload (e.g., user ID, email, etc.)
+//   }
+//   return null;
+// };
