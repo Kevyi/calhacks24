@@ -35,6 +35,8 @@ export default function Login() {
       const data = await response.json();
 
       if (response.ok) {
+        // Store the token in local storage
+        localStorage.setItem('token', data.token);
         setMessage('Login successful!');
       } else {
         setMessage(data.message || 'Login failed. Please try again.');
