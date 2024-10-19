@@ -34,33 +34,47 @@
   .logo-placeholder {
     width: 50px;
     height: 50px;
-    background-color: #B7C5BE; /* Muted green */
+    background-color: #B7C5BE;
     border-radius: 50%;
   }
   
-  /* Auth buttons on the right */
-  .auth-buttons {
+  .authButtons {
     display: flex;
-    gap: 10px;
+    gap: 20px; /* Add space between buttons */
   }
   
-  .auth-buttons button {
+  .authButtons button:focus {
+    box-shadow: 0 0 5px #7D6358;
+  }
+  
+  /* Hover effect */
+  .authButtons button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  .authButtons button {
     padding: 10px 15px;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: pointer;    
     font-size: 14px;
-    color: white;
+    border: 5px solid #edd8cf;
+    background-color: #edd8cf; /* Muted green */
+    color: #7D6358;
+    transition: transform 0.2s ease, opacity 0.2s;
+  }
+
+
+  /* Home.module.css */
+
+  .loginButton {
+    border-radius: 20px;
+
+
   }
   
-  /* Login Button */
-  .auth-buttons button:first-child {
-    background-color: #B7C5BE; /* Muted green */
-  }
-  
-  /* Register Button */
-  .auth-buttons button:last-child {
-    background-color: #D1B4A7; /* Soft pinkish beige */
+  .registerButton {
+    border-radius: 20px;
   }
   
   /* Hover Effect */
@@ -80,9 +94,14 @@
   }
   
   .content h1 {
-    font-size: 48px;
+    font-size: 200px;
     margin-bottom: 20px;
     color: #7D6358; /* Rich brown */
+  }
+
+  .content h2 {
+    font-size: 75px;
+
   }
   
   .content p {
