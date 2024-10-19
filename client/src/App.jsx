@@ -1,33 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import axios from 'axios';
 import './App.css'
+
+import AccountPage from './pages/Account.jsx'
+import AddFriendPage from './pages/AddFriend.jsx'
+import HomePage from './pages/Home.jsx'
+import LoginPage from './pages/Login.jsx'
+import RegisterPage from './pages/Register.jsx'
+import ShameBoardPage from './pages/ShameBoard.jsx'
+import TasksPage from './pages/Tasks.jsx'
+import Testing1 from './pages/Testing1.jsx'
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router>
+          <Routes>
+            <Route index element = {<HomePage></HomePage>}></Route> 
+           {/*<Route path = "/home" element = {<HomePage/>}></Route>*/}
+            <Route path = "/add-friend" element = {<AddFriendPage/>}></Route>
+            <Route path = "/account" element = {<AccountPage/>}></Route>
+            <Route path = "/register" element = {<RegisterPage/>}></Route>
+            <Route path = "/login" element = {<LoginPage/>}></Route>
+            <Route path = "/shame-board" element = {<ShameBoardPage/>}></Route>
+            <Route path = "/tasks-page" element = {<TasksPage/>}></Route>
+            <Route path = "/testing1" element = {<Testing1/>}></Route>
+          </Routes>
+      </Router>
+
     </>
   )
 }
