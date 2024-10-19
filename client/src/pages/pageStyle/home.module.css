@@ -1,0 +1,103 @@
+/* Home.module.css */
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Full-page layout */
+  body, html {
+    height: 100%; 
+    background-color: #F0E5DA; /* Off-white beige background */
+    color: #7D6358; /* Rich brown text */
+  }
+  
+  /* Header layout */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #D1B4A7; /* Soft pinkish beige header */
+  }
+  
+  /* Logo and placeholder */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: #B7C5BE; /* Muted green */
+    border-radius: 50%;
+  }
+  
+  /* Auth buttons on the right */
+  .auth-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .auth-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+  }
+  
+  /* Login Button */
+  .auth-buttons button:first-child {
+    background-color: #B7C5BE; /* Muted green */
+  }
+  
+  /* Register Button */
+  .auth-buttons button:last-child {
+    background-color: #D1B4A7; /* Soft pinkish beige */
+  }
+  
+  /* Hover Effect */
+  .auth-buttons button:hover {
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+  
+  /* Centered content */
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Full height minus header */
+    text-align: center;
+  }
+  
+  .content h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #7D6358; /* Rich brown */
+  }
+  
+  .content p {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #7D6358; /* Rich brown */
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #E8D4C5; /* Light beige footer */
+    color: #7D6358;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
