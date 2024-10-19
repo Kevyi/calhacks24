@@ -1,0 +1,67 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #D1B4A7; /* Soft pinkish beige header */
+  }
+  
+  /* Logo and placeholder */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .logo-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: #B7C5BE;
+    border-radius: 50%;
+  }
+  
+  .authButtons {
+    display: flex;
+    gap: 20px; /* Add space between buttons */
+  }
+  
+  .authButtons button:focus {
+    box-shadow: 0 0 5px #7D6358;
+  }
+  
+  /* Hover effect */
+  .authButtons button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+
+  .authButtons button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;    
+    font-size: 14px;
+    border: 5px solid #edd8cf;
+    background-color: #edd8cf; /* Muted green */
+    color: #7D6358;
+    transition: transform 0.2s ease, opacity 0.2s;
+  }
+
+
+  /* Home.module.css */
+
+  .loginButton {
+    border-radius: 20px;
+
+
+  }
+  
+  .registerButton {
+    border-radius: 20px;
+  }
+  
+  /* Hover Effect */
+  .auth-buttons button:hover {
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+  

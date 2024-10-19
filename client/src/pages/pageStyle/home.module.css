@@ -1,5 +1,3 @@
-/* Home.module.css */
-
 /* Reset styles */
 * {
     margin: 0;
@@ -10,7 +8,7 @@
   
   /* Full-page layout */
   body, html {
-    height: 100%; 
+    height: 100%;
     background-color: #F0E5DA; /* Off-white beige background */
     color: #7D6358; /* Rich brown text */
   }
@@ -20,102 +18,94 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: #D1B4A7; /* Soft pinkish beige header */
+    padding: 2vw 5vw; /* Adjust padding based on screen size */
+    background-color: #D1B4A7; /* Soft pinkish beige */
   }
   
   /* Logo and placeholder */
   .logo-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1vw;
   }
   
   .logo-placeholder {
-    width: 50px;
-    height: 50px;
+    width: 5vw;
+    height: 5vw;
     background-color: #B7C5BE;
     border-radius: 50%;
   }
   
   .authButtons {
     display: flex;
-    gap: 20px; /* Add space between buttons */
+    gap: 2vw; /* Space between buttons */
   }
   
-  .authButtons button:focus {
-    box-shadow: 0 0 5px #7D6358;
-  }
-  
-  /* Hover effect */
-  .authButtons button:hover {
-    opacity: 0.9;
-    transform: scale(1.05);
-  }
-
   .authButtons button {
-    padding: 10px 15px;
+    padding: 1vw 1.5vw;
     border-radius: 5px;
-    cursor: pointer;    
-    font-size: 14px;
-    border: 5px solid #edd8cf;
+    cursor: pointer;
+    font-size: 1.5vw; /* Button text scales */
+    border: 0.5vw solid #edd8cf;
     background-color: #edd8cf; /* Muted green */
     color: #7D6358;
     transition: transform 0.2s ease, opacity 0.2s;
   }
-
-
-  /* Home.module.css */
-
+  
+  /* Button Hover and Focus Effects */
+  .authButtons button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+  
+  .authButtons button:focus {
+    box-shadow: 0 0 0.5vw #7D6358;
+  }
+  
+  /* Login and Register Specific Styles */
   .loginButton {
-    border-radius: 20px;
-
-
+    border-radius: 2vw;
   }
   
   .registerButton {
-    border-radius: 20px;
+    border-radius: 2vw;
   }
   
-  /* Hover Effect */
-  .auth-buttons button:hover {
-    opacity: 0.9;
-    transition: opacity 0.2s;
-  }
-  
-  /* Centered content */
+  /* Centered Content */
   .content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: calc(100vh - 100px); /* Full height minus header. Hard code is bad, leaves black bar.*/
+    height: calc(100vh - 10vw); /* Adjust height minus header */
     text-align: center;
+    color: #7D6358;
+
   }
   
   .content h1 {
-    font-size: 150px;
-    margin-bottom: 20px;
-    color: #7D6358; /* Rich brown */
+    font-size: 10vw; /* Scales with viewport width */
+    margin-bottom: 2vw;
   }
 
   .content h2 {
-    font-size: 75px;
-
+    font-size: 6vw;
+    margin-bottom:2 vw;
   }
   
   .content p {
-    font-size: 18px;
-    margin: 5px 0;
-    color: #7D6358; /* Rich brown */
+    font-size: 2vw;
+    margin: 1vw 0;
+    color: #7D6358;
   }
   
   /* Footer */
   footer {
     text-align: center;
-    padding: 10px;
+    padding: 1vw;
     background-color: #E8D4C5; /* Light beige footer */
     color: #7D6358;
+    position: absolute;
     width: 100%;
     bottom: 0;
   }
