@@ -79,7 +79,7 @@ body, html {
   left: 50%; /* Center horizontally */
   transform: translate(-35%, -50%) rotate(2deg);
   z-index: 10;
-  width: 17.8vw; /* Control size */
+  width: 15vw; /* Control size */
   height: 18vw;
 }
 
@@ -89,7 +89,7 @@ body, html {
   left: 60%; /* Slight offset from the center to the right */
   transform: translate(52%, 70%) rotate(6deg); /* Adjust translation and rotation */
   z-index: 9; /* Below the first overlay image */
-  width: 22vw; /* Scaled proportionately to viewport width */
+  width: 15vw; /* Scaled proportionately to viewport width */
   height: auto;
   
 }
