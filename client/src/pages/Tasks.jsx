@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import AddTaskButton from '../components/AddTaskButton';
 import TaskTable from '../components/TaskTable';
-import './pageStyle/tasks.css';
+import './pageStyle/tasks.module.css';
 
 export default function Tasks() {
   const [yourTasks, setYourTasks] = useState([
