@@ -66,7 +66,7 @@ export default function Tasks() {
 
 
           for(let i = 0; i < data.length; i++){
-            theirTasks.push( { description: data[i].description, friend: data[i].friendUsername, amount: data[i].money, timeLeft: data[i].due_date });
+            theirTasks.push( { description: data[i].description, friend: data[i].username, amount: data[i].money, timeLeft: data[i].due_date });
           }
 
           if (response.ok) {

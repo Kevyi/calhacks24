@@ -31,10 +31,10 @@ const Home = () => {
           <h2>Welcome to</h2>
           <h1>Do Your F'n Work!</h1>
           <p>A productivity tool to keep you focused and on track.</p>
-          <p>Log in or register to start crushing your tasks!</p>
+          <p style={{marginBottom : "30px"}}>Log in or register to start crushing your tasks!</p>
         </main>
 
-        <footer className={styles.footer}>calhacks '24 yippee</footer>
+        <footer className={styles.footer}><strong>@calhacks '24 yippee:   </strong> Andrew Chen, Kevin Hu, Prateek Panda (and Daniel Wang I guess).</footer>
       </div>
     </>
   );
