@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './pageStyle/account.module.css';
+import Navbar1 from '../components/Navigationbar'; // Correct Navbar import
 
 function AccountPage() {
   const [email, setEmail] = useState('');
@@ -126,6 +127,8 @@ function AccountPage() {
   };
 
   return (
+    <>
+    <Navbar1></Navbar1>
     <div className={styles.container}>
       <h2>Update Account</h2>
       {message && <p className={styles.message}>{message}</p>}
@@ -189,6 +192,7 @@ function AccountPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

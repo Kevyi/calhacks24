@@ -12,14 +12,13 @@ import RegisterPage from './pages/Register.jsx'
 import ShameBoardPage from './pages/ShameBoard.jsx'
 import TasksPage from './pages/Tasks.jsx'
 import Testing1 from './pages/Testing1.jsx'
-import Navbar1 from './components/Navigationbar'; 
+
 
 function App() {
 
   return (
     <>
       <Router>
-      <Navbar1></Navbar1>
           <Routes>
             <Route index element = {<HomePage></HomePage>}></Route> 
            {<Route path = "/home" element = {<HomePage/>}></Route>}

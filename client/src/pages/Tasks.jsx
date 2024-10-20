@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AddTaskButton from '../components/AddTaskButton';
 import TaskTable from '../components/TaskTable';
 import styles from './pageStyle/tasks.module.css';
+import Navbar1 from '../components/Navigationbar'; // Correct Navbar import
 
 export default function Tasks() {
   const [yourTasks, setYourTasks] = useState([]);
@@ -162,6 +163,8 @@ export default function Tasks() {
   };
 
   return (
+    <>
+    <Navbar1></Navbar1>
     <div className={styles["tasks-page"]}>
       <h1>Tasks</h1>
       <div className={styles["task-tables"]}>
@@ -176,5 +179,6 @@ export default function Tasks() {
       </div>
       <AddTaskButton friends={friends} addTask={addTask} balance={balance} />
     </div>
+    </>
   );
 }

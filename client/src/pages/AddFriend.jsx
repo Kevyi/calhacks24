@@ -53,8 +53,9 @@ export default function AddFriendPage() {
   };
 
   return (
+    <>
+    <Navbar /> {/* Navbar at the top */}
     <div className={styles.pageContainer}>
-      <Navbar /> {/* Navbar at the top */}
 
       <main className={styles.mainContent}>
         <div className={styles.formContainer}>
@@ -88,5 +89,6 @@ export default function AddFriendPage() {
 
       <footer className={styles.footer}>calhacks '24 yippee</footer>
     </div>
+    </>
   );
 }

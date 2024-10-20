@@ -2,10 +2,12 @@ import Navbar from '../components/Navigationbar';
 import styles from './pageStyle/home.module.css'; 
 import pandaImage from '../assets/Panda1.png'; 
 import pandaImage2 from '../assets/Panda2.png';  // Import new image
+import Navbar1 from '../components/Navigationbar'; 
 
 const Home = () => {
   return (
     <>
+    <Navbar1></Navbar1>
       <div>
 
         <main className={styles.content}>
