@@ -5,17 +5,17 @@ import styles from './pageStyle/tasks.module.css';
 
 export default function Tasks() {
   const [yourTasks, setYourTasks] = useState([
-    { status: 'Pending', description: 'Complete the report', friend: 'Alice', amount: 5, timeLeft: '2 hours' },
-    { status: 'Pending', description: 'Fix the bug', friend: 'Bob', amount: 10, timeLeft: '1 day' },
-    { status: 'Pending', description: 'Write documentation', friend: 'Charlie', amount: 8, timeLeft: '3 days' },
-    { status: 'Pending', description: 'Update website', friend: 'Dave', amount: 12, timeLeft: '5 hours' },
+    { description: 'Complete the report', friend: 'Alice', amount: 5, timeLeft: '2 hours' },
+    { description: 'Fix the bug', friend: 'Bob', amount: 10, timeLeft: '1 day' },
+    { description: 'Write documentation', friend: 'Charlie', amount: 8, timeLeft: '3 days' },
+    { description: 'Update website', friend: 'Dave', amount: 12, timeLeft: '5 hours' },
   ]);
 
   const [othersTasks, setOthersTasks] = useState([
-    { status: 'Pending', description: 'Review the code', friend: 'Charlie', amount: 15, timeLeft: '3 hours' },
-    { status: 'Pending', description: 'Design new logo', friend: 'Eve', amount: 20, timeLeft: '2 days' },
-    { status: 'Pending', description: 'Plan event', friend: 'Frank', amount: 25, timeLeft: '1 week' },
-    { status: 'Pending', description: 'Organize files', friend: 'Grace', amount: 18, timeLeft: '4 hours' },
+    { description: 'Review the code', friend: 'Charlie', amount: 15, timeLeft: '3 hours' },
+    { description: 'Design new logo', friend: 'Eve', amount: 20, timeLeft: '2 days' },
+    { description: 'Plan event', friend: 'Frank', amount: 25, timeLeft: '1 week' },
+    { description: 'Organize files', friend: 'Grace', amount: 18, timeLeft: '4 hours' },
   ]);
 
   const friends = ['Alice', 'Bob', 'Charlie']; // Example friends list

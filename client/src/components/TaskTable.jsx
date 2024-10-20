@@ -1,4 +1,3 @@
-import React from 'react';
 import TaskItem from './TaskItem';
 import styles from './componentStyle/TaskTable.module.css';
 

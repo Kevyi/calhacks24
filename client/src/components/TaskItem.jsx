@@ -15,7 +15,6 @@ export default function TaskItem({ task, onConfirm, showActions }) {
   return (
     <div className={styles["task-item"]}>
       <div className={styles["task-summary"]} onClick={handleExpand}>
-        <div className={styles["task-status"]}>{task.status}</div>
         <div className={styles["task-description"]}>{task.description}</div>
       </div>
       {isExpanded && (

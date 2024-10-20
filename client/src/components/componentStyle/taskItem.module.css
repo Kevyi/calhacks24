@@ -20,11 +20,6 @@
   cursor: pointer;
 }
 
-.task-status {
-  font-weight: bold;
-  color: #333;
-}
-
 .task-description {
   color: #555;
 }
