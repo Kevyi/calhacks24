@@ -38,11 +38,12 @@ export default function AddTaskButton({ friends, addTask }) {
 
   return (
     <div>
-      <button className={`add-task-button ${showForm ? 'expand' : ''}`} onClick={() => setShowForm(!showForm)}>+</button>
+      <button className={`add-task-button ${showForm ? 'expand' : ''}`} onClick={() => setShowForm(true)}>+</button>
       {showForm && (
         <div className="task-form-container">
+          <button className="close-button" onClick={() => setShowForm(false)}>×</button>
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className="form-group friend-group">
               <label htmlFor="friend">Friend:</label>
               <select name="friend" value={taskData.friend} onChange={handleChange} required>
                 <option value="">Select a friend</option>
@@ -51,19 +52,25 @@ export default function AddTaskButton({ friends, addTask }) {
                 ))}
               </select>
             </div>
-            <div className="form-group">
+            <div className="form-group time-limit-group">
               <label htmlFor="timeLimit">Time Limit:</label>
-              <input type="number" name="timeLimit" value={taskData.timeLimit} onChange={handleChange} required />
+              <input
+                type="datetime-local"
+                name="timeLimit"
+                value={taskData.timeLimit}
+                onChange={handleChange}
+                required
+              />
             </div>
-            <div className="form-group">
+            <div className="form-group description-group">
               <label htmlFor="description">Task Description:</label>
               <input type="text" name="description" value={taskData.description} onChange={handleChange} required />
             </div>
             <div className="form-group penalty-group">
               <label>Penalty:</label>
-              <button type="button" className={taskData.penalty === 1 ? 'active' : ''} onClick={() => handlePenaltyClick(1)}>$1</button>
-              <button type="button" className={taskData.penalty === 5 ? 'active' : ''} onClick={() => handlePenaltyClick(5)}>$5</button>
-              <button type="button" className={taskData.penalty === 10 ? 'active' : ''} onClick={() => handlePenaltyClick(10)}>$10</button>
+              <button type="button" className={`penalty-button ${taskData.penalty === 1 ? 'active' : ''}`} onClick={() => handlePenaltyClick(1)}>$1</button>
+              <button type="button" className={`penalty-button ${taskData.penalty === 5 ? 'active' : ''}`} onClick={() => handlePenaltyClick(5)}>$5</button>
+              <button type="button" className={`penalty-button ${taskData.penalty === 10 ? 'active' : ''}`} onClick={() => handlePenaltyClick(10)}>$10</button>
             </div>
             <button type="submit" className="confirm-button">Confirm</button>
           </form>
