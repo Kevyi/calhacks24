@@ -40,9 +40,14 @@ const Navbar = () => {
 
       <div className={styles.authButtons}>
         {isLoggedIn ? (
-          <button onClick={handleLogout} className={styles.logOutButton}>
-            Logout
-          </button>
+          <>
+            <Link to="/account">
+              <button className={styles.logOutButton}>Account</button>
+            </Link>
+            <button onClick={handleLogout} className={styles.logOutButton}>
+              Logout
+            </button>
+          </>
         ) : (
           <>
             <Link to="/login">
