@@ -1,11 +1,13 @@
 // pages/Login.jsx
 
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import styles from './pageStyle/login.module.css'; // Import CSS
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Initialize navigate function
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,8 +24,8 @@ export default function Login() {
       });
 
       const data = await response.json();
-      if (response.ok) {
-        localStorage.setItem('userEmail', formData.email);
+      console.log(data);
+      if (response.ok && data.success === true) {
         setMessage('Login successful!');
 
         //Returns this under keyvalue user: {success: true, email : `${email}`}
