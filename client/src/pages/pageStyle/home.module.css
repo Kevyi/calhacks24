@@ -87,7 +87,7 @@ body, html {
   position: absolute;
   top: 10vh; /* 10% of the viewport height for consistent vertical spacing */
   left: 60%; /* Slight offset from the center to the right */
-  transform: translate(72%, 90%) rotate(6deg); /* Adjust translation and rotation */
+  transform: translate(102%, 90%) rotate(6deg); /* Adjust translation and rotation */
   z-index: 9; /* Below the first overlay image */
   width: 15vw; /* Scaled proportionately to viewport width */
   height: auto;
