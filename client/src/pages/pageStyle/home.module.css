@@ -29,26 +29,19 @@ body, html {
   gap: 1vw;
 }
 
-.logo-placeholder {
-  width: 5vw;
-  height: 5vw;
-  background-color: #B7C5BE;
-  border-radius: 50%;
-}
-
 /* Auth buttons styling */
 .authButtons {
   display: flex;
-  gap: 2vw; /* Space between buttons */
+  gap: 2vw;
 }
 
 .authButtons button {
   padding: 1vw 1.5vw;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1.5vw; /* Button text scales */
+  font-size: 1.5vw;
   border: 0.5vw solid #edd8cf;
-  background-color: #edd8cf; /* Muted green */
+  background-color: #edd8cf;
   color: #7D6358;
   transition: transform 0.2s ease, opacity 0.2s;
 }
@@ -64,11 +57,7 @@ body, html {
 }
 
 /* Login and Register Specific Styles */
-.loginButton {
-  border-radius: 2vw;
-}
-
-.registerButton {
+.loginButton, .registerButton {
   border-radius: 2vw;
 }
 
@@ -83,18 +72,28 @@ body, html {
   position: relative; /* Allow overlaying elements */
 }
 
-/* Overlay Container */
-.overlayContainer {
+/* Overlay Containers for Images */
+.overlayContainer:first-child {
   position: absolute;
   top: 0;
   left: 50%; /* Center horizontally */
-  transform: translateX(-5%);
-  
-  z-index: 1; /* Ensure image overlays */
-  width: 60%; /* Control image size */
+  transform: translate(-35%, -30%) rotate(2deg);
+  z-index: 10;
+  width: 18%; /* Control size */
   max-width: 500px;
 }
 
+.overlayContainer:nth-child(2) {
+  position: absolute;
+  top: 10%; /* Offset vertically */
+  left: 60%; /* Slight offset to the right */
+  transform: translate(+52%, +90%) rotate(+6deg);
+  z-index: 9;
+  width: 100%; /* Slightly smaller size */
+  max-width: 550px;
+}
+
+/* Overlay Image Styling */
 .overlayImage {
   width: 100%;
   height: auto;
@@ -103,10 +102,10 @@ body, html {
 
 /* Headings */
 .content h1 {
-  font-size: 10vw; /* Scales with viewport width */
+  font-size: 10vw;
   margin-bottom: 2vw;
   color: #7D6358;
-  z-index: 2; /* Ensure text overlays the image */
+  z-index: 2;
 }
 
 .content h2 {
@@ -126,7 +125,7 @@ body, html {
 footer {
   text-align: center;
   padding: 1vw;
-  background-color: #E8D4C5; /* Light beige footer */
+  background-color: #E8D4C5;
   color: #7D6358;
   position: absolute;
   width: 100%;
