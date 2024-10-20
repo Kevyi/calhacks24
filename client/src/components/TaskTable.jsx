@@ -1,6 +1,6 @@
 import React from 'react';
 import TaskItem from './TaskItem.jsx';
-import './componentStyle/TaskTable.css';
+import './componentStyle/TaskTable.module.css';
 
 export default function TaskTable({ tasks }) {
   return (

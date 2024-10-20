@@ -1,5 +1,5 @@
 import React from 'react';
-import './componentStyle/TaskItem.css';
+import './componentStyle/TaskItem.module.css';
 
 export default function TaskItem({ status, description, friend, amount, timeLeft }) {
   return (
