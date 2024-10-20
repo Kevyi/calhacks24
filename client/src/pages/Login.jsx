@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './pageStyle/login.css';
+import './pageStyle/login.module.css';
 
 export default function Login() {
   // State to store form data

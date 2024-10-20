@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './componentStyle/AddTaskButton.css';
+import './componentStyle/AddTaskButton.module.css';
 
 export default function AddTaskButton({ friends, addTask }) {
   const [showForm, setShowForm] = useState(false);
