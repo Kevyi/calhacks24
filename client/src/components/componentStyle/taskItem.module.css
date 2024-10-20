@@ -1,36 +1,70 @@
 .task-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  .task-status {
-    flex: 1;
-    color: #646cff;
-    font-weight: bold;
-  }
-  
-  .task-description {
-    flex: 2;
-    color: #333;
-  }
-  
-  .task-friend {
-    flex: 1;
-    color: #555;
-  }
-  
-  .task-amount {
-    flex: 1;
-    color: #333;
-  }
-  
-  .task-time-left {
-    flex: 1;
-    color: #ff6464;
-  }
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.task-item:hover {
+  transform: scale(1.02);
+}
+
+.task-summary {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.task-status {
+  font-weight: bold;
+  color: #333;
+}
+
+.task-description {
+  color: #555;
+}
+
+.task-details {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.task-friend,
+.task-amount,
+.task-time-left {
+  color: #777;
+  margin-bottom: 5px;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.confirm-button,
+.exit-button {
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 48%;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.confirm-button:hover {
+  background-color: green;
+}
+
+.exit-button:hover {
+  background-color: red;
+}
