@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './componentStyle/AddTaskButton.module.css';
 
 export default function AddTaskButton({ friends = [], addTask, balance }) {
@@ -11,12 +11,22 @@ export default function AddTaskButton({ friends = [], addTask, balance }) {
     timeLeft: ''
   });
 
+  // Set the default friend when the component mounts or when the friends array changes
+  useEffect(() => {
+    if (friends.length > 0) {
+      setNewTask((prevTask) => ({
+        ...prevTask,
+        friend: friends[0]
+      }));
+    }
+  }, [friends]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setNewTask({ ...newTask, [name]: value });
   };
 
-  console.log("NEw Friend: " + newTask.friend)
+  console.log("New Friend: " + newTask.friend);
 
   const handleAmountClick = (amount) => {
     setNewTask({ ...newTask, amount });
