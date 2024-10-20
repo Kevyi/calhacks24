@@ -1,8 +1,7 @@
-// pages/Register.jsx
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import styles from './pageStyle/register.module.css'; // Correct CSS import
+import logo from '../assets/Panda5.png'; // Import the logo image
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -93,11 +92,17 @@ export default function Register() {
                 required
               />
             </div>
-            <button type="submit" className={styles.submitButton}>Register</button>
+            <button type="submit" className={styles.submitButton}>
+              Register
+            </button>
           </form>
         </div>
       </div>
-      <div className={styles.rightSide}></div>
+      <div className={styles.rightSide}>
+        <div className={styles.loginImageContainer}>
+          <img src={logo} alt="Panda Logo" className={styles.loginImage} />
+        </div>
+      </div>
     </div>
   );
 }

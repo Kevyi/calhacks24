@@ -1,3 +1,11 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
 /* Main container layout */
 .homeContainer {
   display: flex;
@@ -5,23 +13,33 @@
   background-color: #F0E5DA; /* Off-white beige background */
 }
 
-/* Left-side layout */
+/* Left-side layout with centered content */
 .leftSide {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #E8D4C5;
+  background-color: #E8D4C5; /* Light beige background */
   padding: 100px;
 }
 
-/* Form wrapper to align title and form together */
+/* Right-side layout with image */
+.rightSide {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+  align-items: center; /* Center the image vertically */
+  background-color: #D1B4A7; /* Soft pinkish beige background */
+  padding: 100px;
+}
+
+/* Form wrapper to align the title and form */
 .formWrapper {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align title and form to the left */
+  align-items: flex-start; /* Align content to the left */
   width: 100%;
-  max-width: 600px; /* Set max width for the form wrapper */
+  max-width: 600px; /* Set max width */
   gap: 10px;
 }
 
@@ -32,25 +50,35 @@
   margin-bottom: 10px;
 }
 
-/* Right-side layout */
-.rightSide {
-  flex: 1;
-  background-color: #D1B4A7;
+/* Login image container */
+.loginImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Full width of the right side */
+  height: 100%; /* Full height of the right side */
+}
+
+/* Login image styling */
+.loginImage {
+  width: 30vw; /* Scale width based on viewport */
+  height: auto;
+  object-fit: contain; /* Maintain aspect ratio */
 }
 
 /* Form styling */
 .form {
   display: flex;
   flex-direction: column;
-  width: 100%; /* Full width of the form wrapper */
-  background-color: #FFFFFF;
+  width: 100%; /* Full width within the form wrapper */
+  background-color: #FFFFFF; /* White background */
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   gap: 20px;
 }
 
-/* Form group */
+/* Form group layout */
 .formGroup {
   display: flex;
   flex-direction: column;
@@ -59,29 +87,29 @@
 
 /* Label styling */
 label {
-  font-size: 22px;
+  font-size: 22px; /* Larger font size */
   font-weight: bold;
-  color: #7D6358;
+  color: #7D6358; /* Rich brown text */
 }
 
 /* Input field styling */
 input {
   padding: 15px;
-  border: 2px solid #D1B4A7;
+  border: 2px solid #D1B4A7; /* Soft pinkish beige border */
   border-radius: 4px;
-  width: 100%; /* Full width within the form */
+  width: 100%; /* Full width */
   background-color: #FFFFFF;
-  color: #7D6358;
+  color: #7D6358; /* Rich brown text */
 }
 
 input::placeholder {
-  color: #B7C5BE;
+  color: #B7C5BE; /* Muted green placeholder */
 }
 
 /* Submit button styling */
 .submitButton {
   padding: 15px 20px;
-  background-color: #D1B4A7;
+  background-color: #D1B4A7; /* Soft pinkish beige */
   color: white;
   border: none;
   border-radius: 8px;
@@ -91,5 +119,16 @@ input::placeholder {
 }
 
 .submitButton:hover {
-  background-color: #B7C5BE;
+  background-color: #B7C5BE; /* Muted green hover effect */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 500px) {
+  .formWrapper, .loginImageContainer {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  .loginImage {
+    width: 50%; /* Adjust image size for smaller screens */
+  }
 }

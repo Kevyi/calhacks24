@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import styles from './pageStyle/login.module.css'; // Import CSS
 import logo from '../assets/Panda4.png'; // Import the logo image
-import Navbar1 from '../components/Navigationbar';
 
 
 export default function Login() {
