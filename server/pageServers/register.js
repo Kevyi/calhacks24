@@ -11,46 +11,56 @@ const bcrypt = require("bcrypt");
 
 router.post("/register", (req, res) => {
 
+  const {email, password} = req.body;
 
-  db.connect((error) => {
+  //Sets balance on default to 100 since we are not implementing stripe api.
+  let balance = 1000;
+  //Make sure this works. Use push() to push values onto array.
+  let friends = JSON.stringify([]);
+
+  const query = 'INSERT INTO users (username, password, balance, user_friends) VALUES (?, ?, ?, ?)';
+
+  db.getConnection((error, connection) => {
     if (error) {
       console.error('Error connecting to MySQL database:', error);
     } else {
       console.log('Connected to MySQL database!');
-    }
-  });
-  
-    const {email, password} = req.body;
-
-    console.log(`${email}}`);
-    
-
-    //Sets balance on default to 100 since we are not implementing stripe api.
-    let balance = 1000;
-
-    const query = 'INSERT INTO users (username, password, balance) VALUES (?, ?, ?)';
 
 
-    //Implement control handler for error duplication.
-  try{
-    db.query(query, [email, password, balance], (err, results) => {
-      if (err) {
+       //Implement control handler for error duplication.
+      try{
+
+        //Friends is an empty array right now.
+        db.query(query, [email, password, balance, friends], (err, results) => {
+
+          connection.release();
+          console.log(friends)
+
+          if (err) {
+            console.error('Error inserting data:', err);
+            res.json({ success: false, message: `${email}` })
+          }
+          res.json({ success: true, message: `${email}` })
+        });
+      }catch(err){
         console.error('Error inserting data:', err);
         res.json({ success: false, message: `${email}` })
-      }
-      res.json({ success: true, message: `${email}` })
-    });
-  }catch(err){
-    console.error('Error inserting data:', err);
-    res.json({ success: false, message: `${email}` })
 
-  }
+      }
+    }
+
+    
+
+
+  });
+  
+  
+   
     
   
   
 
-  // close the MySQL connection
-  db.end();
+
 
 });
 
