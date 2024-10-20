@@ -14,10 +14,9 @@
 
 /* Logo image styling */
 .logoImage {
-  width: 50px;
-  height: 50px;
-  object-fit: contain; /* Keep the image's aspect ratio */
-  border-radius: 50%; /* Circular logo shape */
+  width: 4vw;
+  height: 4vw;
+  object-fit: cover; /* Keep the image's aspect ratio */
   overflow: hidden;
 }
 
@@ -36,7 +35,7 @@
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 1vw;
   border: 5px solid #edd8cf;
   background-color: #edd8cf; /* Button background color */
   color: #7D6358;
