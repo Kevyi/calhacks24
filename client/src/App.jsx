@@ -52,29 +52,34 @@ export default App
 // import TasksPage from './pages/Tasks';
 // import Testing1 from './pages/Testing1';
 
-// import { isAuthenticated } from './services/auth'; // Import authentication check
-
 // // PrivateRoute component to handle protected routes
-// const PrivateRoute = ({ element: Element, ...rest }) => {
-//   return isAuthenticated() ? (
+// const PrivateRoute = ({ element: Element, user, ...rest }) => {
+//   return user ? (
 //     <Element {...rest} />
 //   ) : (
-//     <Navigate to="/login" replace />
+//     <Navigate to="/" replace />
 //   );
 // };
 
 // function App() {
+//   const [user, setUser] = useState(null);
+
+//   useEffect(() => {
+//     // Fetch user data or authentication status here
+//     // Example: setUser({ email: 'user@example.com', authenticated: true });
+//   }, []);
+
 //   return (
 //     <>
 //       <Router>
 //         <Routes>
 //           <Route index element={<HomePage />} />
-//           <Route path="/add-friend" element={<PrivateRoute element={AddFriendPage} />} />
-//           <Route path="/account" element={<PrivateRoute element={AccountPage} />} />
+//           <Route path="/add-friend" element={<PrivateRoute element={AddFriendPage} user={user} />} />
+//           <Route path="/account" element={<PrivateRoute element={AccountPage} user={user} />} />
 //           <Route path="/register" element={<RegisterPage />} />
 //           <Route path="/login" element={<LoginPage />} />
-//           <Route path="/shame-board" element={<PrivateRoute element={ShameBoardPage} />} />
-//           <Route path="/tasks-page" element={<PrivateRoute element={TasksPage} />} />
+//           <Route path="/shame-board" element={<PrivateRoute element={ShameBoardPage} user={user} />} />
+//           <Route path="/tasks-page" element={<PrivateRoute element={TasksPage} user={user} />} />
 //           <Route path="/testing1" element={<Testing1 />} />
 //         </Routes>
 //       </Router>
@@ -83,3 +88,5 @@ export default App
 // }
 
 // export default App;
+
+
