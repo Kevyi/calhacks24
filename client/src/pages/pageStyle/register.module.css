@@ -1,0 +1,95 @@
+/* Main container layout */
+.homeContainer {
+  display: flex;
+  height: 100vh;
+  background-color: #F0E5DA; /* Off-white beige background */
+}
+
+/* Left-side layout */
+.leftSide {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E8D4C5;
+  padding: 40px;
+}
+
+/* Form wrapper to align title and form together */
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align title and form to the left */
+  width: 100%;
+  max-width: 600px; /* Set max width for the form wrapper */
+  gap: 10px;
+}
+
+/* Title styling */
+.title {
+  font-size: 36px;
+  color: #7D6358;
+  margin-bottom: 10px;
+}
+
+/* Right-side layout */
+.rightSide {
+  flex: 1;
+  background-color: #D1B4A7;
+}
+
+/* Form styling */
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Full width of the form wrapper */
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
+/* Form group */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Label styling */
+label {
+  font-size: 22px;
+  font-weight: bold;
+  color: #7D6358;
+}
+
+/* Input field styling */
+input {
+  padding: 15px;
+  border: 2px solid #D1B4A7;
+  border-radius: 4px;
+  width: 100%; /* Full width within the form */
+  background-color: #FFFFFF;
+  color: #7D6358;
+}
+
+input::placeholder {
+  color: #B7C5BE;
+}
+
+/* Submit button styling */
+.submitButton {
+  padding: 15px 20px;
+  background-color: #D1B4A7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:hover {
+  background-color: #B7C5BE;
+}
