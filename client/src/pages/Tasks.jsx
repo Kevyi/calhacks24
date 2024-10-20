@@ -1,24 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddTaskButton from '../components/AddTaskButton';
 import TaskTable from '../components/TaskTable';
 import styles from './pageStyle/tasks.module.css';
 
 export default function Tasks() {
-  const [yourTasks, setYourTasks] = useState([
-    { description: 'Complete the report', friend: 'Alice', amount: 5, timeLeft: '2 hours' },
-    { description: 'Fix the bug', friend: 'Bob', amount: 10, timeLeft: '1 day' },
-    { description: 'Write documentation', friend: 'Charlie', amount: 8, timeLeft: '3 days' },
-    { description: 'Update website', friend: 'Dave', amount: 12, timeLeft: '5 hours' },
-  ]);
+  const [yourTasks, setYourTasks] = useState([]);
+  const [othersTasks, setOthersTasks] = useState([]);
+  const [friends, setFriends] = useState([]);
+  const [balance, setBalance] = useState(0);
 
-  const [othersTasks, setOthersTasks] = useState([
-    { description: 'Review the code', friend: 'Charlie', amount: 15, timeLeft: '3 hours' },
-    { description: 'Design new logo', friend: 'Eve', amount: 20, timeLeft: '2 days' },
-    { description: 'Plan event', friend: 'Frank', amount: 25, timeLeft: '1 week' },
-    { description: 'Organize files', friend: 'Grace', amount: 18, timeLeft: '4 hours' },
-  ]);
+  useEffect(() => {
+    const fetchTasks = async () => {
+      const email = localStorage.getItem('userEmail');
+      if (email) {
+        try {
+          const response = await fetch('http://localhost:8080/tasks', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email }),
+          });
+          const data = await response.json();
+          if (response.ok) {
+            setYourTasks(data.yourTasks);
+            setOthersTasks(data.othersTasks);
+            setFriends(data.friends);
+            setBalance(data.balance);
+          } else {
+            console.error(data.message);
+          }
+        } catch (error) {
+          console.error('Error fetching tasks:', error);
+        }
+      }
+    };
 
-  const friends = ['Alice', 'Bob', 'Charlie']; // Example friends list
+    fetchTasks();
+  }, []);
 
   const addTask = (task) => {
     setYourTasks([...yourTasks, task]);
@@ -41,7 +58,7 @@ export default function Tasks() {
           <TaskTable tasks={othersTasks} onConfirm={confirmTask} showActions={true} />
         </div>
       </div>
-      <AddTaskButton friends={friends} addTask={addTask} />
+      <AddTaskButton friends={friends} addTask={addTask} balance={balance} />
     </div>
   );
 }

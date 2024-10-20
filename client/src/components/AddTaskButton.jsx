@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './componentStyle/AddTaskButton.module.css';
 
-export default function AddTaskButton({ friends, addTask }) {
+export default function AddTaskButton({ friends, addTask, balance }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedAmount, setSelectedAmount] = useState(null);
   const [newTask, setNewTask] = useState({
-    status: 'Pending',
     description: '',
     friend: friends[0],
     amount: 0,
     timeLeft: ''
   });
-
-  useEffect(() => {
-    const selectElements = document.querySelectorAll(`.${styles['form-group']} select`);
-    selectElements.forEach(select => {
-      select.style.textAlignLast = 'center';
-    });
-  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,6 +23,10 @@ export default function AddTaskButton({ friends, addTask }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (newTask.amount > balance) {
+      alert('Insufficient balance to add this task.');
+      return;
+    }
     addTask(newTask);
     setIsOpen(false);
   };
@@ -46,16 +42,16 @@ export default function AddTaskButton({ friends, addTask }) {
             <button className={styles["close-button"]} onClick={() => setIsOpen(false)}>X</button>
             <form onSubmit={handleSubmit}>
               <div className={styles["form-group"]}>
+                <label>Description</label>
+                <input type="text" name="description" placeholder="Description" value={newTask.description} onChange={handleChange} required />
+              </div>
+              <div className={styles["form-group"]}>
                 <label>Friend</label>
                 <select name="friend" value={newTask.friend} onChange={handleChange}>
                   {friends.map((friend, index) => (
                     <option key={index} value={friend}>{friend}</option>
                   ))}
                 </select>
-              </div>
-              <div className={styles["form-group"]}>
-                <label>Description</label>
-                <input type="text" name="description" placeholder="Description" value={newTask.description} onChange={handleChange} required />
               </div>
               <div className={styles["form-group"]}>
                 <label>Time Left</label>
@@ -86,6 +82,9 @@ export default function AddTaskButton({ friends, addTask }) {
                     $10
                   </button>
                 </div>
+              </div>
+              <div className={styles["balance-info"]}>
+                <p>Balance: ${balance}</p>
               </div>
               <div className={styles["action-buttons"]}>
                 <button type="button" className={styles["exit-button"]} onClick={() => setIsOpen(false)}>✗</button>
