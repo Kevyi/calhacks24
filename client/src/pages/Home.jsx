@@ -7,7 +7,6 @@ const Home = () => {
   return (
     <>
       <div>
-        <Navbar />
 
         <main className={styles.content}>
           <div className={styles.overlayContainer}>
