@@ -21,6 +21,11 @@ export default function AddFriendPage() {
     e.preventDefault(); // Prevent page reload
 
     try {
+
+      if(userEmail === friendCode){
+        throw new Error("Cant add yourself");  
+      }
+
       const response = await fetch('http://localhost:8080/add-friend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -37,7 +42,13 @@ export default function AddFriendPage() {
       }
     } catch (error) {
       console.error('Network error:', error);
-      alert('There was a problem adding the friend.');
+      if(userEmail === friendCode){
+        alert("Are you that lonely?");
+      }else{
+        alert('There was a problem adding the friend.');
+      }
+
+      
     }
   };
 
@@ -53,7 +64,7 @@ export default function AddFriendPage() {
               Enter Friend Code:
             </label>
             <input
-              type="text"
+              type="email"
               id="friendCode"
               value={friendCode}
               onChange={handleInputChange}
