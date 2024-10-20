@@ -11,21 +11,29 @@
   background-color: #E8D4C5; /* Light beige background */
 }
 
-/* Right-side layout with centered login form */
+/* Right-side layout with centered login content */
 .rightSide {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
   background-color: #D1B4A7; /* Soft pinkish beige background */
+}
+
+/* Page title styling (Login text outside the box) */
+.title {
+  font-size: 36px;
+  color: #7D6358;
+  margin-bottom: 10px;
 }
 
 /* Login container */
 .loginContainer {
   width: 400px;
-  padding: 40px;
-  background-color: #FFFFFF;
-  border-radius: 10px;
+  padding: 30px;
+  background-color: #FFFFFF; /* White background for the form */
+  border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -40,7 +48,7 @@
 }
 
 /* Label styling */
-label1 {
+label {
   display: block;
   font-weight: bold;
   margin-bottom: 8px;
@@ -49,11 +57,10 @@ label1 {
 
 /* Input field styling */
 input {
-  width: 100%; /* Make input fields fill the width */
+  width: 100%;
   padding: 12px;
   border: 2px solid #D1B4A7; /* Soft pinkish beige border */
   border-radius: 4px;
-  box-sizing: border-box;
   font-size: 16px;
   background-color: #FFFFFF;
   color: #7D6358; /* Rich brown text */
@@ -65,8 +72,8 @@ input::placeholder {
 }
 
 /* Button styling */
-button {
-  width: 100%; /* Make the button fill the width */
+.submitButton {
+  width: 100%;
   padding: 15px;
   background-color: #D1B4A7;
   border: none;
@@ -78,21 +85,16 @@ button {
 }
 
 /* Button hover effect */
-button:hover {
+.submitButton:hover {
   background-color: #B7C5BE; /* Muted green hover effect */
 }
 
-/* Message styling for success or error */
+/* Message styling */
 p {
   font-size: 14px;
-  color: red; /* Red for error messages */
+  color: red;
   text-align: center;
   margin-top: 10px;
-}
-
-/* Add shadow on hover */
-.loginContainer:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 /* Media query for responsiveness */

@@ -70,7 +70,7 @@ export default function Register() {
               />
             </div>
             <div className={styles.formGroup}>
-              <label2 htmlFor="password">Password:</label2>
+              <label htmlFor="password">Password:</label>
               <input
                 type="password"
                 id="password"
@@ -82,7 +82,7 @@ export default function Register() {
               />
             </div>
             <div className={styles.formGroup}>
-              <label2 htmlFor="confirmPassword">Confirm Password:</label2>
+              <label htmlFor="confirmPassword">Confirm Password:</label>
               <input
                 type="password"
                 id="confirmPassword"
