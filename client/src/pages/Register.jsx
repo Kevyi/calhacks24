@@ -1,101 +1,66 @@
 import { useState } from 'react';
-import './pageStyle/register.css';
+import Navbar from '../components/Navigationbar'; // Reuse Navbar component
+import './pageStyle/AddFriendPage.module.css'; // Import CSS
 
-export default function Register() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
+export default function AddFriendPage() {
+  const [friendCode, setFriendCode] = useState(''); // State for input
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setFriendCode(e.target.value); // Update the friend code state
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    
-    if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
+    e.preventDefault(); // Prevent page reload
 
     try {
-      // POST request to backend
-      const response = await fetch('http://localhost:8080/register', {
+      // POST request to the backend
+      const response = await fetch('http://localhost:8080/add-friend', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
+        body: JSON.stringify({ friendCode }), // Send friend code as JSON
       });
 
-      const data = await response.json(); // Assume backend returns JSON
+      const data = await response.json(); // Handle backend response
 
       if (response.ok) {
-        alert('Registration successful!');
+        alert('Friend added successfully!');
         console.log('Server response:', data);
+        setFriendCode(''); // Clear input after success
       } else {
-        alert('Registration failed!');
-        console.error('Server error:', data);
+        alert('Failed to add friend. Please try again.');
+        console.error('Error:', data);
       }
-
     } catch (error) {
       console.error('Network error:', error);
-      alert('There was a problem submitting the form.');
+      alert('There was a problem adding the friend.');
     }
   };
 
   return (
     <div className="home-container">
+      <Navbar /> {/* Navbar at the top */}
       <div className="left-side">
-        <h2>Register Account</h2>
+        <h2>Add a Friend</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="email">Email Address:</label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              value={formData.email}
+            <label htmlFor="friendCode">Enter Friend Code:</label>
+            <input
+              type="text"
+              id="friendCode"
+              name="friendCode"
+              value={friendCode}
               onChange={handleInputChange}
-              required 
+              placeholder="panda@doyour.work"
+              required
             />
           </div>
-          <div className="form-group">
-            <label htmlFor="password">Password:</label>
-            <input 
-              type="password" 
-              id="password" 
-              name="password" 
-              value={formData.password}
-              onChange={handleInputChange}
-              required 
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="confirm-password">Confirm Password:</label>
-            <input 
-              type="password" 
-              id="confirm-password" 
-              name="confirmPassword" 
-              value={formData.confirmPassword}
-              onChange={handleInputChange}
-              required 
-            />
-          </div>
-          <button type="submit">Register</button>
+          <button type="submit">Add Friend</button>
         </form>
       </div>
       <div className="right-side">
-        {/* Blank color palette */}
+        {/* Optional: Add an image or other visual elements */}
       </div>
     </div>
   );

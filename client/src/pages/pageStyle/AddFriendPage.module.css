@@ -12,73 +12,106 @@
     flex: 1;
     display: flex; /* Align elements horizontally */
     justify-content: space-between; /* Form on the left, image on the right */
-    align-items: center;
+    align-items: center; /* Vertically center items */
     padding: 20px;
   }
   
-  /* Form container on the left */
+  /* Left-aligned form container, vertically centered */
   .formContainer {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: center; /* Vertically align to the middle */
+    align-items: flex-start; /* Left-align form elements */
+    gap: 20px; /* Increase space between elements */
     width: 50%; /* Take half the width */
   }
   
-  /* Label styling */
+  /* Title styling: slightly larger */
+  h2 {
+    font-size: 50px; /* Bigger title */
+    color: #7D6358; /* Keep the rich brown color */
+    margin-bottom: 10px;
+  }
+  
+  /* Label styling: slightly larger */
   .label {
-    font-size: 20px;
+    font-size: 30px; /* Bigger label */
     color: #7D6358;
   }
   
+  /* Description box */
   .descriptionBox {
     text-align: left;
-    font-style: italic; /* Italicize the text */
-    font-size: 16px; /* Adjust font size */
-    color: #7D6358; /* Rich brown text color */
-    padding: 20px; /* Add space inside the box */
-    margin: 10px 0; /* Add spacing around the box */
-    border: 2px solid #D1B4A7; /* Soft pinkish beige border */
-    border-radius: 10px; /* Rounded corners */
-    background-color: #F0E5DA; /* Off-white beige background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for effect */
-    width: fit-content; /* Ensure box size adjusts to content */
+    font-style: italic;
+    font-size: 18px; /* Slightly bigger font size */
+    color: #7D6358;
+    padding: 20px;
+    margin: 10px 0;
+    border: 2px solid #D1B4A7;
+    border-radius: 10px;
+    background-color: #F0E5DA;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: fit-content;
   }
-
-  /* Textbox styling */
+  
+  /* Input field styling: larger */
   .textBox {
     width: 100%; /* Full width within the form */
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #D1B4A7; /* Soft pinkish beige border */
+    padding: 15px; /* Increase padding */
+    font-size: 18px; /* Increase font size */
+    border: 2px solid #D1B4A7;
     border-radius: 5px;
     background-color: #FFFFFF;
     color: #7D6358;
   }
   
   .textBox::placeholder {
-    color: #B7C5BE; /* Muted green for placeholder text */
+    color: #B7C5BE;
+    font-size: 16px; /* Make placeholder slightly larger */
   }
   
-  /* Image container on the right */
+  /* Submit button styling: larger */
+  .submitButton {
+    padding: 15px 25px; /* Increase padding */
+    font-size: 18px; /* Larger font size */
+    background-color: #D1B4A7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background-color: #B7C5BE; /* Muted green hover */
+  }
+  
+  .submitButton:focus {
+    outline: none;
+    box-shadow: 0 0 5px #7D6358; /* Focus shadow */
+  }
+  
+  /* Right-aligned image container */
   .imageContainer {
     display: flex;
-    justify-content: flex-end; /* Align the image to the right */
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
     width: 50%; /* Take half the width */
   }
   
   .pandaImage {
     max-width: 80%; /* Ensure the image scales properly */
     height: auto;
-    border-radius: 10px; /* Optional: Add rounded corners */
+    border-radius: 10px;
   }
   
-  /* Footer */
+  /* Footer styling */
   .footer {
     text-align: center;
     padding: 10px;
-    background-color: #E8D4C5; /* Light beige footer */
+    background-color: #E8D4C5;
     color: #7D6358;
     position: absolute;
     width: 100%;
     bottom: 0;
-  }
+  } 
