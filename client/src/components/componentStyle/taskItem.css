@@ -1,0 +1,36 @@
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .task-status {
+    flex: 1;
+    color: #646cff;
+    font-weight: bold;
+  }
+  
+  .task-description {
+    flex: 2;
+    color: #333;
+  }
+  
+  .task-friend {
+    flex: 1;
+    color: #555;
+  }
+  
+  .task-amount {
+    flex: 1;
+    color: #333;
+  }
+  
+  .task-time-left {
+    flex: 1;
+    color: #ff6464;
+  }

@@ -2,6 +2,22 @@
     padding: 20px;
   }
   
+  .task-tables {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .task-section {
+    width: 48%;
+    margin-bottom: 40px;
+  }
+  
+  .task-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
   .tasks-list {
     margin-bottom: 60px; /* Space for the add task button */
   }
@@ -12,13 +28,6 @@
     border-radius: 4px;
     margin-bottom: 10px;
     background-color: #f9f9f9;
-  }
-  
-  /* Additional styling for the tasks page */
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
   }
   
   .task-item p {
@@ -49,6 +58,11 @@
     z-index: 1000;
   }
   
+  .add-task-button:hover {
+    background-color: #646cff; /* Keep the same color on hover */
+    cursor: pointer; /* Ensure cursor is a pointer */
+  }
+  
   .add-task-button.expand {
     animation: expandCircle 0.5s forwards;
   }
@@ -74,12 +88,14 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     opacity: 0;
     animation: fadeIn 0.5s forwards 0.5s;
     z-index: 1001;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    background-color: #646cff; /* Use the same color as the button */
+    color: white; /* White text */
   }
   
   @keyframes fadeIn {
@@ -98,46 +114,46 @@
     color: white;
   }
   
-  input, select, .date-picker {
+  input, select {
+    width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: white;
-    color: black;
-    margin-bottom: 10px;
+    background-color: #333; /* Darker background */
+    color: white; /* White text */
   }
   
-  .penalty-group {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .penalty-group button {
+  button[type="button"] {
+    margin-right: 1px;
     padding: 8px 12px;
     border: none;
-    border-radius: 50%;
+    border-radius: 0;
     cursor: pointer;
-    background-color: white;
-    color: black;
-    transition: background-color 0.3s ease;
-    margin: 0 10px;
+    background-color: #333; /* Darker background */
+    color: white; /* White text */
   }
   
-  .penalty-group button.active {
-    background-color: #646cff;
-    color: white;
-  }
-  
-  .confirm-button {
-    padding: 12px 20px;
-    background-color: #646cff;
-    color: white;
+  button[type="submit"] {
+    padding: 10px 15px;
+    background-color: #333; /* Darker background */
+    color: white; /* White text */
     border: none;
-    border-radius: 50%;
+    border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-    width: 100%;
-    text-align: center;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: white; /* Keep the same color on hover */
+    opacity: 1; /* Ensure it stays solid */
   }

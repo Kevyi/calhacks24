@@ -1,27 +1,37 @@
 import React, { useState } from 'react';
-import AddTaskButton from '../components/AddTaskButton'; // Corrected path
+import AddTaskButton from '../components/AddTaskButton';
+import TaskTable from '../components/TaskTable';
 import './pageStyle/tasks.css';
 
 export default function Tasks() {
-  const [tasks, setTasks] = useState([]);
+  const [yourTasks, setYourTasks] = useState([
+    { status: 'Pending', description: 'Complete the report', friend: 'Alice', amount: 5, timeLeft: '2 hours' },
+    { status: 'Completed', description: 'Buy groceries', friend: 'Bob', amount: 10, timeLeft: '1 day' },
+  ]);
+
+  const [othersTasks, setOthersTasks] = useState([
+    { status: 'Pending', description: 'Review the code', friend: 'Charlie', amount: 15, timeLeft: '3 hours' },
+    { status: 'Completed', description: 'Prepare presentation', friend: 'Dave', amount: 20, timeLeft: '2 days' },
+  ]);
+
   const friends = ['Alice', 'Bob', 'Charlie']; // Example friends list
 
   const addTask = (task) => {
-    setTasks([...tasks, task]);
+    setYourTasks([...yourTasks, task]);
   };
 
   return (
     <div className="tasks-page">
       <h1>Tasks</h1>
-      <div className="tasks-list">
-        {tasks.map((task, index) => (
-          <div key={index} className="task-item">
-            <p><strong>Friend:</strong> {task.friend}</p>
-            <p><strong>Time Limit:</strong> {task.timeLimit} hours</p>
-            <p><strong>Description:</strong> {task.description}</p>
-            <p><strong>Penalty:</strong> ${task.penalty}</p>
-          </div>
-        ))}
+      <div className="task-tables">
+        <div className="task-section">
+          <h2>Your Tasks</h2>
+          <TaskTable tasks={yourTasks} />
+        </div>
+        <div className="task-section">
+          <h2>Others' Tasks</h2>
+          <TaskTable tasks={othersTasks} />
+        </div>
       </div>
       <AddTaskButton friends={friends} addTask={addTask} />
     </div>
