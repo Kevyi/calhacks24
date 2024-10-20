@@ -21,7 +21,7 @@ function App() {
       <Router>
           <Routes>
             <Route index element = {<HomePage></HomePage>}></Route> 
-           {/*<Route path = "/home" element = {<HomePage/>}></Route>*/}
+           {<Route path = "/home" element = {<HomePage/>}></Route>}
             <Route path = "/add-friend" element = {<AddFriendPage/>}></Route>
             <Route path = "/account" element = {<AccountPage/>}></Route>
             <Route path = "/register" element = {<RegisterPage/>}></Route>
