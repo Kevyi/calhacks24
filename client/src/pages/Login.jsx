@@ -1,20 +1,19 @@
-// pages/Login.jsx
-
 import React, { useState } from 'react';
-import styles from './pageStyle/login.module.css'; // Import CSS
+import styles from './pageStyle/login.module.css'; // Assuming you have a CSS module for styling
 
-export default function Login() {
+const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/login', {
+      const response = await fetch('http://localhost:8080/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -22,7 +21,7 @@ export default function Login() {
 
       const data = await response.json();
       if (response.ok) {
-        localStorage.setItem('token', data.token);
+        localStorage.setItem('userEmail', formData.email);
         setMessage('Login successful!');
       } else {
         setMessage(data.message || 'Login failed. Please try again.');
@@ -42,26 +41,24 @@ export default function Login() {
           {message && <p>{message}</p>}
           <form onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
-              <label1 htmlFor="email">Email:</label1>
+              <label htmlFor="email">Email:</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="panda@doyour.work"
                 required
               />
             </div>
             <div className={styles.formGroup}>
-              <label1 htmlFor="password">Password:</label1>
+              <label htmlFor="password">Password:</label>
               <input
                 type="password"
                 id="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                placeholder="Enter your password"
                 required
               />
             </div>
@@ -71,4 +68,6 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+
+export default Login;
