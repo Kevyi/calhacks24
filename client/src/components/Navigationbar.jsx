@@ -25,7 +25,7 @@ const Navbar = () => {
   const handleLogout = () => {
     const storedUserData = JSON.parse(localStorage.getItem('user')) || {};
     const updatedUserData = {success: false, email : "none"};
-    localStorage.setItem('user', JSON.stringify(updatedUserData)); // Update localStorage
+    localStorage.setItem('user', null); // Update localStorage, JSON.stringify(updatedUserData)
     navigate('/'); // Redirect to homepage or login page
   };
 
