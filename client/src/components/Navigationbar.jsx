@@ -44,6 +44,12 @@ const Navbar = () => {
             <Link to="/account">
               <button className={styles.logOutButton}>Account</button>
             </Link>
+            <Link to="/tasks-page">
+              <button className={styles.logOutButton}>Tasks</button>
+            </Link>
+            <Link to="/add-friend">
+              <button className={styles.logOutButton}>Add Friends</button>
+            </Link>
             <button onClick={handleLogout} className={styles.logOutButton}>
               Logout
             </button>

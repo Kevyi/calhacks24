@@ -155,7 +155,7 @@ router.post("/tasks", (req, res) => {
     const query = `INSERT INTO tasks (username, title, description, money, due_date, friendUsername)
                     VALUES (?, ?, ?, ?, ?, ?);`;
 
-    
+    console.log(task.friend)
   
     db.getConnection((error, connection) => {
       if (error) {
@@ -193,7 +193,51 @@ router.post("/tasks", (req, res) => {
   });
 
 
+  router.post("/delete-task", (req, res) => {
 
+    const {email, task} = req.body;
+    const title = "whatever"
+    
+  
+    const query = `INSERT INTO tasks (username, title, description, money, due_date, friendUsername)
+                    VALUES (?, ?, ?, ?, ?, ?);`;
+
+    
+  
+    db.getConnection((error, connection) => {
+      if (error) {
+        console.error('Error connecting to MySQL database:', error);
+      } else {
+        console.log('Connected to MySQL database in adding Tasks!');
+  
+         
+        try{
+          
+          
+          db.query(query, [email, title,  task.description, task.amount, task.timeLeft, task.friend], (err, results) => {
+  
+            connection.release();
+            
+
+            res.json(results)   
+
+            
+          });
+        }catch(err){
+          console.error('Error inserting data:', err);
+          res.json(results)
+  
+        }
+      }
+  
+      
+  
+  
+    });
+    
+    
+  
+  });
 
 
 module.exports = router

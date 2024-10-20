@@ -6,7 +6,7 @@ export default function AddTaskButton({ friends = [], addTask, balance }) {
   const [selectedAmount, setSelectedAmount] = useState(null);
   const [newTask, setNewTask] = useState({
     description: '',
-    friend: friends.length > 0 ? friends : '', // Default to empty string if no friends
+    friend: friends.length > 0 ? friends[0] : '', // Default to empty string if no friends
     amount: 0,
     timeLeft: ''
   });
@@ -15,6 +15,8 @@ export default function AddTaskButton({ friends = [], addTask, balance }) {
     const { name, value } = e.target;
     setNewTask({ ...newTask, [name]: value });
   };
+
+  console.log("NEw Friend: " + newTask.friend)
 
   const handleAmountClick = (amount) => {
     setNewTask({ ...newTask, amount });
