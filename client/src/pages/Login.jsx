@@ -7,7 +7,7 @@ import styles from './pageStyle/login.module.css';
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [message, setMessage] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate(); //add navigation to this page.
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,7 +27,13 @@ export default function Login() {
       if (response.ok && data.success === true) {
         console.log(data)
         setMessage('Login successful!');
-        navigate('/dashboard');
+
+        //Returns this under keyvalue user: {success: true, email : `${email}`}
+          //Use this: const storedUserData = JSON.parse(localStorage.getItem('user')); // storedUserData will be null if no 'user'
+
+        localStorage.setItem('user', JSON.stringify(userData));
+        navigate('/tasks-page');
+
       } else {
         setMessage(data.message || 'Login failed. Please try again.');
       }
