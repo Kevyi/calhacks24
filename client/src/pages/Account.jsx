@@ -29,12 +29,12 @@ function AccountPage() {
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
-
+    const oldEmail = JSON.parse(localStorage.getItem('user')).email;
     try {
       const response = await fetch('http://localhost:8080/update-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, oldEmail }),
       });
 
       const data = await response.json();
