@@ -2,6 +2,22 @@
     padding: 20px;
   }
   
+  .task-tables {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .task-section {
+    width: 48%;
+    margin-bottom: 40px;
+  }
+  
+  .task-section h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
   .tasks-list {
     margin-bottom: 60px; /* Space for the add task button */
   }
@@ -11,14 +27,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 10px;
-    background-color: transparent; /* Remove white background */
-  }
-  
-  /* Additional styling for the tasks page */
-  h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #333;
+    background-color: #f9f9f9;
   }
   
   .task-item p {
@@ -33,20 +42,118 @@
   .add-task-button {
     position: fixed;
     bottom: 20px;
+    right: 20px;
+    background-color: #646cff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    z-index: 1000;
   }
   
-  /* Styling for the penalty buttons */
-  .penalty-button {
+  .add-task-button:hover {
+    background-color: #646cff; /* Keep the same color on hover */
+    cursor: pointer; /* Ensure cursor is a pointer */
+  }
+  
+  .add-task-button.expand {
+    animation: expandCircle 0.5s forwards;
+  }
+  
+  @keyframes expandCircle {
+    0% {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    100% {
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  
+  .task-form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 0.5s forwards 0.5s;
+    z-index: 1001;
+    background-color: #646cff; /* Use the same color as the button */
+    color: white; /* White text */
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #333; /* Darker background */
+    color: white; /* White text */
+  }
+  
+  button[type="button"] {
     margin-right: 1px;
     padding: 8px 12px;
     border: none;
-    border-radius: 0; /* Ensure this is set to 0 */
+    border-radius: 0;
     cursor: pointer;
     background-color: #333; /* Darker background */
     color: white; /* White text */
   }
   
-  .penalty-button.active {
-    background-color: #646cff;
+  button[type="submit"] {
+    padding: 10px 15px;
+    background-color: #333; /* Darker background */
+    color: white; /* White text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
     color: white;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    color: white; /* Keep the same color on hover */
+    opacity: 1; /* Ensure it stays solid */
   }
