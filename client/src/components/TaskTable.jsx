@@ -1,18 +1,15 @@
-import React from 'react';
-import TaskItem from './TaskItem.jsx';
-import './componentStyle/TaskTable.module.css';
+import TaskItem from './TaskItem';
+import styles from './componentStyle/TaskTable.module.css';
 
-export default function TaskTable({ tasks }) {
+export default function TaskTable({ tasks, onConfirm, showActions }) {
   return (
-    <div className="task-table">
+    <div className={styles["task-table"]}>
       {tasks.map((task, index) => (
         <TaskItem
           key={index}
-          status={task.status}
-          description={task.description}
-          friend={task.friend}
-          amount={task.amount}
-          timeLeft={task.timeLeft}
+          task={task}
+          onConfirm={onConfirm}
+          showActions={showActions}
         />
       ))}
     </div>
