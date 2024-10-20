@@ -196,13 +196,15 @@ router.post("/tasks", (req, res) => {
   router.post("/delete-task", (req, res) => {
 
     const {email, task} = req.body;
+    const taskObject = typeof(task)
     const title = "whatever"
     
   
-    const query = `INSERT INTO tasks (username, title, description, money, due_date, friendUsername)
-                    VALUES (?, ?, ?, ?, ?, ?);`;
+    const query = `DELETE FROM tasks WHERE username = ? AND description = ? AND friendUsername = ?`
+    const testQuery = `SELECT * FROM tasks WHERE username = ? AND description = ? AND friendUsername = ?;
+`
 
-    
+  
   
     db.getConnection((error, connection) => {
       if (error) {
@@ -212,9 +214,13 @@ router.post("/tasks", (req, res) => {
   
          
         try{
+          console.log("description: " + typeof(task.description))
+          console.log("username: " + typeof(email))
+          console.log("FriendUsername: " + task.friend)
+          console.log("object: " + taskObject)
           
           
-          db.query(query, [email, title,  task.description, task.amount, task.timeLeft, task.friend], (err, results) => {
+          db.query(query, [task.friend, task.description, email], (err, results) => {
   
             connection.release();
             
