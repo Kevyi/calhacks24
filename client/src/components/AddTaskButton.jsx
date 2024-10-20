@@ -6,7 +6,7 @@ export default function AddTaskButton({ friends, addTask, balance }) {
   const [selectedAmount, setSelectedAmount] = useState(null);
   const [newTask, setNewTask] = useState({
     description: '',
-    friend: friends[0],
+    friend: friends.length > 0 ? friends[0] : '', // Default to empty string if no friends
     amount: 0,
     timeLeft: ''
   });
@@ -47,11 +47,15 @@ export default function AddTaskButton({ friends, addTask, balance }) {
               </div>
               <div className={styles["form-group"]}>
                 <label>Friend</label>
-                <select name="friend" value={newTask.friend} onChange={handleChange}>
-                  {friends.map((friend, index) => (
-                    <option key={index} value={friend}>{friend}</option>
-                  ))}
-                </select>
+                {friends.length > 0 ? (
+                  <select name="friend" value={newTask.friend} onChange={handleChange}>
+                    {friends.map((friend, index) => (
+                      <option key={index} value={friend}>{friend}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <p>No friends available</p>
+                )}
               </div>
               <div className={styles["form-group"]}>
                 <label>Time Left</label>
