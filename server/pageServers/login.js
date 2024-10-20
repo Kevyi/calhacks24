@@ -19,22 +19,25 @@ router.post("/login", (req, res) => {
       const {email, password} = req.body;
 
   
-      const query = 'INSERT INTO users (username, password, balance) VALUES (?, ?, ?)';
+      const query = 'SELECT password FROM users WHERE username = ?';
   
       //Implement control handler for if error.
-    try{
-      db.query(query, [email, password, balance], (err, results) => {
+ 
+      db.query(query, [email], (err, results) => {
+        
         if (err) {
+
           console.error('Error inserting data:', err);
-          res.json({ success: false, message: `${email}` })
+          res.json({ success: false, email})
         }
-        res.json({ success: true, message: `${email}` })
+
+        //If obtained results === password, return success.
+        if(results === password){
+            res.json({success: true, email : `${email}`})
+        }
+        
       });
-    }catch(err){
-      console.error('Error inserting data:', err);
-      res.json({ success: false, message: `${email}` })
-  
-    }
+   
       
     
     
