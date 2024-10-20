@@ -57,7 +57,7 @@ export default function Register() {
         <div className={styles.formWrapper}>
           <h2 className={styles.title}>Register Account</h2>
           <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.formGroup}>
+            <div className={styles.formGroup}>  
               <label htmlFor="email">Email Address:</label>
               <input
                 type="email"

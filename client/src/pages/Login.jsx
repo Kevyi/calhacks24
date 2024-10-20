@@ -20,8 +20,8 @@ const Login = () => {
       });
 
       const data = await response.json();
-      if (response.ok) {
-        localStorage.setItem('userEmail', formData.email);
+      if (response.ok && data.success === true) {
+        console.log(data)
         setMessage('Login successful!');
       } else {
         setMessage(data.message || 'Login failed. Please try again.');
