@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className={styles.logoContainer}>
         {/* Actual image instead of placeholder */}
         <img src={logo} alt="Panda Logo" className={styles.logoImage} />
-        <div className={styles.logo}>Do Your F'n Job</div>
+        <div className={styles.logo}>Do Your F'n Work</div>
       </div>
 
       <div className={styles.authButtons}>

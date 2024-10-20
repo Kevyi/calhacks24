@@ -93,9 +93,7 @@ export default function Register() {
                 required
               />
             </div>
-            <button type="submit" className={styles.submitButton}>
-              Register
-            </button>
+            <button type="submit" className={styles.submitButton}>Register</button>
           </form>
         </div>
       </div>

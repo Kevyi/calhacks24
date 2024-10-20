@@ -1,106 +1,95 @@
-/* Container for the entire login page */
-.loginPageContainer {
+/* Main container layout */
+.homeContainer {
   display: flex;
   height: 100vh;
-  background-color: #F0E5DA; /* Off-white beige background */
+  background-color: #F0E5DA;
 }
 
 /* Left-side layout */
 .leftSide {
   flex: 1;
-  background-color: #E8D4C5; /* Light beige background */
+  background-color: #D1B4A7;
 }
 
-/* Right-side layout with centered login content */
+/* Right-side layout */
 .rightSide {
   flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
-  background-color: #D1B4A7; /* Soft pinkish beige background */
+  justify-content: center;
+  align-items: center;
+  background-color: #E8D4C5;
+  padding: 100px;
 }
 
-/* Page title styling (Login text outside the box) */
+/* Form wrapper */
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 600px;
+  gap: 10px;
+}
+
+/* Title styling */
 .title {
   font-size: 36px;
   color: #7D6358;
   margin-bottom: 10px;
 }
 
-/* Login container */
-.loginContainer {
-  width: 400px;
-  padding: 30px;
-  background-color: #FFFFFF; /* White background for the form */
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Form styling */
+.form {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 100%;
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   gap: 20px;
 }
 
-/* Form group styling */
+/* Form group */
 .formGroup {
-  width: 100%;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 /* Label styling */
 label {
-  display: block;
+  font-size: 22px;
   font-weight: bold;
-  margin-bottom: 8px;
-  color: #7D6358; /* Rich brown text */
+  color: #7D6358;
 }
 
 /* Input field styling */
 input {
-  width: 100%;
-  padding: 12px;
-  border: 2px solid #D1B4A7; /* Soft pinkish beige border */
-  border-radius: 4px;
-  font-size: 16px;
-  background-color: #FFFFFF;
-  color: #7D6358; /* Rich brown text */
-}
-
-/* Input placeholder styling */
-input::placeholder {
-  color: #B7C5BE; /* Muted green placeholder */
-}
-
-/* Button styling */
-.submitButton {
-  width: 100%;
   padding: 15px;
-  background-color: #D1B4A7;
-  border: none;
+  border: 2px solid #D1B4A7;
   border-radius: 4px;
+  width: 100%;
+  background-color: #FFFFFF;
+  color: #7D6358;
+}
+
+input::placeholder {
+  color: #B7C5BE;
+}
+
+/* Submit button styling */
+.submitButton {
+  padding: 15px 20px;
+  background-color: #D1B4A7;
   color: white;
+  border: none;
+  border-radius: 8px;
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-/* Button hover effect */
 .submitButton:hover {
-  background-color: #B7C5BE; /* Muted green hover effect */
-}
-
-/* Message styling */
-p {
-  font-size: 14px;
-  color: red;
-  text-align: center;
-  margin-top: 10px;
-}
-
-/* Media query for responsiveness */
-@media (max-width: 500px) {
-  .loginContainer {
-    width: 90%;
-    padding: 20px;
-  }
+  background-color: #B7C5BE;
 }
