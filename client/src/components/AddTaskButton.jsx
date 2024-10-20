@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './componentStyle/AddTaskButton.module.css';
 
-export default function AddTaskButton({ friends, addTask, balance }) {
+export default function AddTaskButton({ friends = [], addTask, balance }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedAmount, setSelectedAmount] = useState(null);
   const [newTask, setNewTask] = useState({
@@ -47,7 +47,7 @@ export default function AddTaskButton({ friends, addTask, balance }) {
               </div>
               <div className={styles["form-group"]}>
                 <label>Friend</label>
-                {friends.length > 0 ? (
+                {Array.isArray(friends) && friends.length > 0 ? (
                   <select name="friend" value={newTask.friend} onChange={handleChange}>
                     {friends.map((friend, index) => (
                       <option key={index} value={friend}>{friend}</option>
