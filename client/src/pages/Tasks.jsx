@@ -119,12 +119,46 @@ export default function Tasks() {
     fetchTasks();
   }, []);
 
-  const addTask = (task) => {
+  const addTask = async (task) => {
+    const updatedBalance = balance - task.amount;
     setYourTasks([...yourTasks, task]);
+    setBalance(updatedBalance);
+
+    // Send the new task and updated balance to the backend
+    const email = JSON.parse(localStorage.getItem('user')).email;
+    try {
+      const response = await fetch('http://localhost:8080/add-task', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, task, balance: updatedBalance }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        console.error(data.message);
+      }
+    } catch (error) {
+      console.error('Error adding task:', error);
+    }
   };
 
-  const confirmTask = (task) => {
+  const confirmTask = async (task) => {
     setOthersTasks(othersTasks.filter(t => t !== task));
+
+    // Send the task to delete to the backend
+    const email = JSON.parse(localStorage.getItem('user')).email;
+    try {
+      const response = await fetch('http://localhost:8080/delete-task', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, task }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        console.error(data.message);
+      }
+    } catch (error) {
+      console.error('Error deleting task:', error);
+    }
   };
 
   return (
