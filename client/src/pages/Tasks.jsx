@@ -94,7 +94,7 @@ export default function Tasks() {
           console.log(data)
 
 
-          friendsList = data[0].user_friends;
+          friendsList = JSON.parse(data[0].user_friends);
           console.log("Friends List: " + friendsList)
 
           balanceName = data[0].balance;

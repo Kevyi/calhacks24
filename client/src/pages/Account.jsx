@@ -27,9 +27,11 @@ function AccountPage() {
     setAddAmount(e.target.value);
   };
 
+  const oldEmail = JSON.parse(localStorage.getItem('user')).email;
+
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
-    const oldEmail = JSON.parse(localStorage.getItem('user')).email;
+    
     try {
       const response = await fetch('http://localhost:8080/update-email', {
         method: 'POST',
@@ -42,6 +44,7 @@ function AccountPage() {
         alert('Email updated successfully!');
         console.log('Server response:', data);
         setMessage('Email updated successfully');
+        localStorage.setItem('user', JSON.stringify({email: `${email}`, success: true}));
         navigate('/'); // Redirect to home page on success
       } else {
         setMessage('Error updating email');
@@ -63,7 +66,7 @@ function AccountPage() {
       const response = await fetch('http://localhost:8080/update-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password }),
+        body: JSON.stringify({oldEmail, password }),
       });
 
       const data = await response.json();
@@ -81,13 +84,33 @@ function AccountPage() {
   };
 
   const handleUpdateBalance = async () => {
-    const email = localStorage.getItem('userEmail');
-    if (email) {
+
+    if (oldEmail) {
+        try {
+          const response = await fetch('http://localhost:8080/update-balance', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, addAmount: parseFloat(addAmount) }),
+          });
+          const data = await response.json();
+          if (response.ok) {
+            setBalance(data.newBalance);
+            setAddAmount(''); // Clear the input field
+          } else {
+            console.error(data.message);
+          }
+        } catch (error) {
+          console.error('Error updating balance:', error);
+        }
+      }
+
+    
+    if (oldEmail) {
       try {
-        const response = await fetch('http://localhost:8080/update-balance', {
+        const response = await fetch('http://localhost:8080/retrieve-balance', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, addAmount: parseFloat(addAmount) }),
+          body: JSON.stringify({ email}),
         });
         const data = await response.json();
         if (response.ok) {
