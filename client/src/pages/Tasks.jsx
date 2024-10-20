@@ -120,9 +120,9 @@ export default function Tasks() {
   }, []);
 
   const addTask = async (task) => {
-    const updatedBalance = balance - task.amount;
     setYourTasks([...yourTasks, task]);
-    setBalance(updatedBalance);
+
+    console.log("This is the task object: " + task.friend)
 
     // Send the new task and updated balance to the backend
     const email = JSON.parse(localStorage.getItem('user')).email;
@@ -130,7 +130,7 @@ export default function Tasks() {
       const response = await fetch('http://localhost:8080/add-task', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, task, balance: updatedBalance }),
+        body: JSON.stringify({ email, task}),
       });
       const data = await response.json();
       if (!response.ok) {
@@ -153,8 +153,8 @@ export default function Tasks() {
         body: JSON.stringify({ email, task }),
       });
       const data = await response.json();
-      if (!response.ok) {
-        console.error(data.message);
+      if (response.ok) {
+        console.error("Inserted Task");
       }
     } catch (error) {
       console.error('Error deleting task:', error);

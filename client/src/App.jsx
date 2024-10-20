@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Navbar from "./components/Navigationbar.jsx"
 import axios from 'axios';
 import './App.css'
 
@@ -11,14 +12,14 @@ import RegisterPage from './pages/Register.jsx'
 import ShameBoardPage from './pages/ShameBoard.jsx'
 import TasksPage from './pages/Tasks.jsx'
 import Testing1 from './pages/Testing1.jsx'
-
+import Navbar1 from './components/Navigationbar'; 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <Router>
+      <Navbar1></Navbar1>
           <Routes>
             <Route index element = {<HomePage></HomePage>}></Route> 
            {<Route path = "/home" element = {<HomePage/>}></Route>}
@@ -51,6 +52,7 @@ export default App
 // import ShameBoardPage from './pages/ShameBoard';
 // import TasksPage from './pages/Tasks';
 // import Testing1 from './pages/Testing1';
+// import Navbar1 from './components/Navigationbar'; 
 
 // // PrivateRoute component to handle protected routes
 // const PrivateRoute = ({ element: Element, user, ...rest }) => {
@@ -72,6 +74,7 @@ export default App
 //   return (
 //     <>
 //       <Router>
+//         <Navbar1></Navbar1>
 //         <Routes>
 //           <Route index element={<HomePage />} />
 //           <Route path="/add-friend" element={<PrivateRoute element={AddFriendPage} user={user} />} />
