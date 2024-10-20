@@ -30,7 +30,7 @@ export default function Login() {
 
         //Returns this under keyvalue user: {success: true, email : `${email}`}
           //Use this: const storedUserData = JSON.parse(localStorage.getItem('user')); // storedUserData will be null if no 'user'
-
+        
         localStorage.setItem('user', JSON.stringify(data));
         navigate('/tasks-page');
 

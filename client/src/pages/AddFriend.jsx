@@ -6,6 +6,11 @@ import pandaImage from '../assets/Panda1.png'; // Import the image
 import styles from './pageStyle/AddFriendPage.module.css'; // Import CSS module
 
 export default function AddFriendPage() {
+
+  //Gets user's email.
+  const storedUserData = JSON.parse(localStorage.getItem('user'))
+  const userEmail = storedUserData.email;
+
   const [friendCode, setFriendCode] = useState(''); // Manage input state
 
   const handleInputChange = (e) => {
@@ -19,7 +24,7 @@ export default function AddFriendPage() {
       const response = await fetch('http://localhost:8080/add-friend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ friendCode }),
+        body: JSON.stringify({ userEmail, friendCode }),
       });
 
       const data = await response.json();
