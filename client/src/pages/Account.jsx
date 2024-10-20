@@ -7,6 +7,8 @@ function AccountPage() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [balance, setBalance] = useState(0); // Initial balance state
+  const [addAmount, setAddAmount] = useState(''); // State for the amount to add
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
@@ -19,6 +21,10 @@ function AccountPage() {
 
   const handleConfirmPasswordChange = (e) => {
     setConfirmPassword(e.target.value);
+  };
+
+  const handleAddAmountChange = (e) => {
+    setAddAmount(e.target.value);
   };
 
   const handleEmailSubmit = async (e) => {
@@ -74,6 +80,28 @@ function AccountPage() {
     }
   };
 
+  const handleUpdateBalance = async () => {
+    const email = localStorage.getItem('userEmail');
+    if (email) {
+      try {
+        const response = await fetch('http://localhost:8080/update-balance', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, addAmount: parseFloat(addAmount) }),
+        });
+        const data = await response.json();
+        if (response.ok) {
+          setBalance(data.newBalance);
+          setAddAmount(''); // Clear the input field
+        } else {
+          console.error(data.message);
+        }
+      } catch (error) {
+        console.error('Error updating balance:', error);
+      }
+    }
+  };
+
   return (
     <div className={styles.container}>
       <h2>Update Account</h2>
@@ -119,6 +147,23 @@ function AccountPage() {
           </div>
           <button type="submit" className={styles.button}>Update Password</button>
         </form>
+      </div>
+      <div className={styles.box}>
+        <h3>Update Balance</h3>
+        <div className={styles.balanceContainer}>
+          <h3>Current Balance: ${balance}</h3>
+          <div className={styles.formGroup}>
+            <label htmlFor="addAmount">Add Amount:</label>
+            <input
+              type="number"
+              id="addAmount"
+              value={addAmount}
+              onChange={handleAddAmountChange}
+              className={styles.input}
+            />
+          </div>
+          <button onClick={handleUpdateBalance} className={styles.button}>Add to Balance</button>
+        </div>
       </div>
     </div>
   );
