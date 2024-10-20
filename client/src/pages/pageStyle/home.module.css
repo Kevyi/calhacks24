@@ -77,7 +77,7 @@ body, html {
   position: absolute;
   top: 0;
   left: 50%; /* Center horizontally */
-  transform: translate(-35%, -30%) rotate(2deg);
+  transform: translate(-35%, -50%) rotate(2deg);
   z-index: 10;
   width: 17.8vw; /* Control size */
   height: 18vw;
@@ -87,9 +87,9 @@ body, html {
   position: absolute;
   top: 10vh; /* 10% of the viewport height for consistent vertical spacing */
   left: 60%; /* Slight offset from the center to the right */
-  transform: translate(52%, 90%) rotate(6deg); /* Adjust translation and rotation */
+  transform: translate(52%, 70%) rotate(6deg); /* Adjust translation and rotation */
   z-index: 9; /* Below the first overlay image */
-  width: 26vw; /* Scaled proportionately to viewport width */
+  width: 22vw; /* Scaled proportionately to viewport width */
   height: auto;
   
 }
