@@ -1,41 +1,27 @@
+// pages/Login.jsx
+
 import React, { useState } from 'react';
-import './pageStyle/login.module.css';
+import styles from './pageStyle/login.module.css'; // Import CSS
 
 export default function Login() {
-  // State to store form data
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-
-  // State to show success or error messages
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [message, setMessage] = useState('');
 
-  // Handle input changes
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the form from refreshing the page
-    
+    e.preventDefault();
     try {
       const response = await fetch('http://localhost:5000/login', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
-
       if (response.ok) {
-        // Store the token in local storage
         localStorage.setItem('token', data.token);
         setMessage('Login successful!');
       } else {
@@ -48,43 +34,37 @@ export default function Login() {
   };
 
   return (
-    <div className="login-page-container">
-      <div className="left-side">
-        {/* Blank color palette */}
-      </div>
-      <div className="right-side">
-        <div className="login-container">
+    <div className={styles.loginPageContainer}>
+      <div className={styles.leftSide}></div>
+      <div className={styles.rightSide}>
+        <div className={styles.loginContainer}>
           <h2>Login</h2>
-
-          {/* Display success or error messages */}
           {message && <p>{message}</p>}
-
-          {/* Login Form */}
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="email">Email:</label>
+            <div className={styles.formGroup}>
+              <label1 htmlFor="email">Email:</label1>
               <input
                 type="email"
                 id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                placeholder="panda@doyour.work"
                 required
               />
             </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Password:</label>
+            <div className={styles.formGroup}>
+              <label1 htmlFor="password">Password:</label1>
               <input
                 type="password"
                 id="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                placeholder="Enter your password"
                 required
               />
             </div>
-
             <button type="submit">Login</button>
           </form>
         </div>
