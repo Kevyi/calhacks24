@@ -8,11 +8,13 @@ import logo from '../assets/SleepingPandaLogo.png'; // Import the logo image
 const Navbar = () => {
   return (
     <header className={styles.navbar}>
+      <Link to="/home">
       <div className={styles.logoContainer}>
-        {/* Actual image instead of placeholder */}
+        
         <img src={logo} alt="Panda Logo" className={styles.logoImage} />
         <div className={styles.logo}>Do Your F'n Work</div>
       </div>
+      </Link>
 
       <div className={styles.authButtons}>
         <Link to="/login">

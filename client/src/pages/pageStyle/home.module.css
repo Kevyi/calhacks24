@@ -79,18 +79,19 @@ body, html {
   left: 50%; /* Center horizontally */
   transform: translate(-35%, -30%) rotate(2deg);
   z-index: 10;
-  width: 18%; /* Control size */
-  max-width: 500px;
+  width: 17.8vw; /* Control size */
+  height: 18vw;
 }
 
 .overlayContainer:nth-child(2) {
   position: absolute;
-  top: 10%; /* Offset vertically */
-  left: 60%; /* Slight offset to the right */
-  transform: translate(+52%, +90%) rotate(+6deg);
-  z-index: 9;
-  width: 100%; /* Slightly smaller size */
-  max-width: 550px;
+  top: 10vh; /* 10% of the viewport height for consistent vertical spacing */
+  left: 60%; /* Slight offset from the center to the right */
+  transform: translate(52%, 90%) rotate(6deg); /* Adjust translation and rotation */
+  z-index: 9; /* Below the first overlay image */
+  width: 26vw; /* Scaled proportionately to viewport width */
+  height: auto;
+  
 }
 
 /* Overlay Image Styling */
