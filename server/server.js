@@ -4,6 +4,8 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const db = require('./database');
+
 
 const cors = require("cors");
 const corsOptions = {
@@ -24,22 +26,15 @@ const shameBoardRoute = require("./pageServers/shameBoard.js");
 
 //app.use("/home", homeRoute);
 
-app.use("/account", accountRoute);
-app.use("/login", loginRoute);
-app.use("/register", registerRoute);
-app.use("/tasks-page", tasksRoute);
-app.use("/add-friend", addFriendRoute);
-app.use("/shame-board", shameBoardRoute);
+app.use(accountRoute);
+app.use(loginRoute);
+app.use(registerRoute);
+app.use(tasksRoute);
+app.use(addFriendRoute);
+app.use(shameBoardRoute);
 
 
-
-app.post("/register", (req, res) => {
-    const {email, password} = req.body;
-
-    console.log(`${email}}`);
-
-    res.json({ success: true, message: `${email}` });
-});
+ 
 
 app.listen(8080, () => {
     console.log("server started");
