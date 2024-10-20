@@ -25,7 +25,6 @@ export default function Login() {
       if (response.ok) {
         localStorage.setItem('userEmail', formData.email);
         setMessage('Login successful!');
-<<<<<<< HEAD
 
         //Returns this under keyvalue user: {success: true, email : `${email}`}
           //Use this: const storedUserData = JSON.parse(localStorage.getItem('user')); // storedUserData will be null if no 'user'
@@ -33,8 +32,6 @@ export default function Login() {
         localStorage.setItem('user', JSON.stringify(data));
         navigate('/tasks-page');
 
-=======
->>>>>>> 3abea9c23b22c7effdea7ad60c803002d509cf38
       } else {
         setMessage(data.message || 'Login failed. Please try again.');
       }
