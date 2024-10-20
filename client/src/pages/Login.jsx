@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
-import styles from './pageStyle/login.module.css'; // Assuming you have a CSS module for styling
+// pages/Login.jsx
 
-const Login = () => {
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './pageStyle/login.module.css';
+
+export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,6 +27,7 @@ const Login = () => {
       if (response.ok) {
         localStorage.setItem('userEmail', formData.email);
         setMessage('Login successful!');
+        navigate('/dashboard');
       } else {
         setMessage(data.message || 'Login failed. Please try again.');
       }
@@ -35,9 +40,11 @@ const Login = () => {
   return (
     <div className={styles.loginPageContainer}>
       <div className={styles.leftSide}></div>
+
+      {/* Right side with Login title above the white box */}
       <div className={styles.rightSide}>
+        <h2 className={styles.Title}>Login</h2> {/* Title moved outside the form box */}
         <div className={styles.loginContainer}>
-          <h2>Login</h2>
           {message && <p>{message}</p>}
           <form onSubmit={handleSubmit}>
             <div className={styles.formGroup}>
@@ -48,6 +55,7 @@ const Login = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
+                placeholder="panda@doyour.work"
                 required
               />
             </div>
@@ -59,15 +67,16 @@ const Login = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                placeholder="Enter your password"
                 required
               />
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" className={styles.submitButton}>
+              Login
+            </button>
           </form>
         </div>
       </div>
     </div>
   );
-};
-
-export default Login;
+}

@@ -27,7 +27,7 @@
   }
   
   /* Title styling: slightly larger */
-  h2 {
+  .h2 {
     font-size: 50px; /* Bigger title */
     color: #7D6358; /* Keep the rich brown color */
     margin-bottom: 10px;
