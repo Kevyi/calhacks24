@@ -1,23 +1,55 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Full-page layout */
+body, html {
+  height: 100%;
+  background-color: #F0E5DA; /* Off-white beige background */
+  color: #7D6358; /* Rich brown text */
+}
+
 /* Main container layout */
 .homeContainer {
   display: flex;
   height: 100vh;
-  background-color: #F0E5DA;
 }
 
 /* Left-side layout */
 .leftSide {
   flex: 1;
-  background-color: #D1B4A7;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #D1B4A7; /* Light beige background */
+}
+
+/* Container for the login image */
+.loginImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Full height of the left side */
+}
+
+/* Login image styling */
+.loginImage {
+  width: 40vw; /* Adjust width based on viewport */
+  height: auto;
+  object-fit: contain; /* Keep aspect ratio */
 }
 
 /* Right-side layout */
 .rightSide {
   flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #E8D4C5;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: #E8D4C5; /* Soft pinkish beige */
   padding: 100px;
 }
 
@@ -43,10 +75,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: #FFFFFF;
+  background-color: #FFFFFF; /* White background for the form */
   padding: 30px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   gap: 20px;
 }
 
@@ -61,27 +93,27 @@
 label {
   font-size: 22px;
   font-weight: bold;
-  color: #7D6358;
+  color: #7D6358; /* Rich brown text */
 }
 
 /* Input field styling */
 input {
   padding: 15px;
-  border: 2px solid #D1B4A7;
+  border: 2px solid #D1B4A7; /* Soft pinkish beige border */
   border-radius: 4px;
-  width: 100%;
+  width: 100%; /* Full width within the form */
   background-color: #FFFFFF;
   color: #7D6358;
 }
 
 input::placeholder {
-  color: #B7C5BE;
+  color: #B7C5BE; /* Muted green placeholder */
 }
 
 /* Submit button styling */
 .submitButton {
   padding: 15px 20px;
-  background-color: #D1B4A7;
+  background-color: #D1B4A7; /* Soft pinkish beige */
   color: white;
   border: none;
   border-radius: 8px;
@@ -91,5 +123,5 @@ input::placeholder {
 }
 
 .submitButton:hover {
-  background-color: #B7C5BE;
+  background-color: #B7C5BE; /* Muted green hover effect */
 }

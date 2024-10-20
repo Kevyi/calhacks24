@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './componentStyle/Navbar.module.css'; // Adjusted path to CSS
-import logo from '../assets/SleepingPandaLogo.png'; // Import the logo image
+import logo from '../assets/Panda5.png'; // Import the logo image
 
 // Function to check if the user is logged in
 function isUserLoggedIn() {

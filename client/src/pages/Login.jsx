@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 import styles from './pageStyle/login.module.css'; // Import CSS
+import logo from '../assets/Panda4.png'; // Import the logo image
+import Navbar1 from '../components/Navigationbar';
+
 
 export default function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -43,9 +46,13 @@ export default function Login() {
     }
   };
 
-  return (
+  return (    
     <div className={styles.homeContainer}>
-      <div className={styles.leftSide}></div>
+      <div className={styles.leftSide}>
+        <div className={styles.loginImageContainer}>
+        <img src={logo} alt="Panda Logo" className={styles.loginImage} />
+        </div>
+      </div>
       <div className={styles.rightSide}>
         <div className={styles.formWrapper}>
           <h2 className={styles.title}>Login</h2> {/* Title aligned above the form */}

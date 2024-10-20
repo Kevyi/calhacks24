@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Navbar from '../components/Navigationbar'; // Correct Navbar import
-import pandaImage from '../assets/Panda1.png'; // Import the image
+import pandaImage from '../assets/Panda3.png'; // Import the image
 import styles from './pageStyle/AddFriendPage.module.css'; // Import CSS module
 
 export default function AddFriendPage() {
